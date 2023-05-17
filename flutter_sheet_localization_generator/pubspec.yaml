@@ -25,7 +25,10 @@ dependencies:
   analyzer: ^4.1.0
   collection: ^1.15.0
   intl: ^0.18.0
-  localization_builder: ^0.15.7
+  localization_builder: 
+    git:
+      url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
+      path: localization_builder
 
 dev_dependencies:
   build_test: ^2.0.0
