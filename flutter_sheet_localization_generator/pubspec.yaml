@@ -22,7 +22,7 @@ dependencies:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
       path: flutter_sheet_localization
   build: ^2.0.0
-  analyzer: ^4.1.0
+  analyzer: ^4.7.0
   collection: ^1.15.0
   intl: ^0.18.0
   localization_builder: 
