@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:csv/csv.dart';
+import 'package:http/http.dart' as http;
 import 'package:localization_builder/localization_builder.dart';
 import 'package:logging/logging.dart';
 import 'package:yaml/yaml.dart';
-import 'package:csv/csv.dart';
-import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   Logger.root.level = Level.ALL;
