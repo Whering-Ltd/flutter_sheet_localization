@@ -13,7 +13,7 @@ dependencies:
   template_string:
     git:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: update-sdk
+      ref: update-http-package
       path: template_string
   recase: ^4.0.0
   yaml: ^3.1.0
