@@ -5,7 +5,7 @@ version: 0.15.7
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=3.0.0"
+  flutter: ">=3.19.0"
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
   template_string:
     git:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: update-http-package
+      ref: update-intl-package
       path: template_string
   recase: ^4.0.0
   yaml: ^3.1.0

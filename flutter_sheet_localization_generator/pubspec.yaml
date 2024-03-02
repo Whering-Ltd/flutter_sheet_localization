@@ -5,7 +5,7 @@ homepage: https://github.com/aloisdeniel/flutter_sheet_localization
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=3.0.0"
+  flutter: ">=3.19.0"
 
 dependencies:
   flutter:
@@ -20,16 +20,16 @@ dependencies:
   flutter_sheet_localization:
     git:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: update-http-package
+      ref: update-intl-package
       path: flutter_sheet_localization
   build: ^2.0.0
   analyzer: ^5.8.0
   collection: ^1.15.0
-  intl: ^0.18.1
+  intl: ^0.19.0
   localization_builder: 
     git:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: update-http-package
+      ref: update-intl-package
       path: localization_builder
 
 dev_dependencies:

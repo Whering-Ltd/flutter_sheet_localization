@@ -20,14 +20,14 @@ dependencies:
   flutter_sheet_localization:
     git:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: update-http-package
+      ref: update-intl-package
       path: flutter_sheet_localization
   flutter_localizations:
     sdk: flutter
   flutter:
     sdk: flutter 
   cupertino_icons: ^1.0.6 
-  intl: ^0.18.1
+  intl: ^0.19.0
 
 dev_dependencies: 
   flutter_test:

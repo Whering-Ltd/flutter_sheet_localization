@@ -1,4 +1,4 @@
-import 'package:intl/locale.dart';
+import 'dart:ui';
 import 'package:template_string/template_string.dart';
     
 final localizedLabels = <Locale, Example>{
@@ -61,10 +61,12 @@ final localizedLabels = <Locale, Example>{
     ),
   ),
 };
+
 enum Gender {
   male,
   female,
 }
+
 enum Plural {
   zero,
   one,
@@ -73,53 +75,53 @@ enum Plural {
 
 class Example {
   const Example({
+    required this.multiline,
     required this.dates,
     required this.templated,
     required this.plurals,
-    required this.multiline,
   });
 
+  final String multiline;
   final ExampleDates dates;
   final ExampleTemplated templated;
   final ExamplePlurals plurals;
-  final String multiline;
   factory Example.fromJson(Map<String, Object?> map) => Example(
+        multiline: map['multiline']! as String,
         dates: ExampleDates.fromJson(map['dates']! as Map<String, Object?>),
         templated: ExampleTemplated.fromJson(
             map['templated']! as Map<String, Object?>),
         plurals:
             ExamplePlurals.fromJson(map['plurals']! as Map<String, Object?>),
-        multiline: map['multiline']! as String,
       );
 
   Example copyWith({
+    String? multiline,
     ExampleDates? dates,
     ExampleTemplated? templated,
     ExamplePlurals? plurals,
-    String? multiline,
   }) =>
       Example(
+        multiline: multiline ?? this.multiline,
         dates: dates ?? this.dates,
         templated: templated ?? this.templated,
         plurals: plurals ?? this.plurals,
-        multiline: multiline ?? this.multiline,
       );
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is Example &&
+          multiline == other.multiline &&
           dates == other.dates &&
           templated == other.templated &&
-          plurals == other.plurals &&
-          multiline == other.multiline);
+          plurals == other.plurals);
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      multiline.hashCode ^
       dates.hashCode ^
       templated.hashCode ^
-      plurals.hashCode ^
-      multiline.hashCode;
+      plurals.hashCode;
 }
 
 class ExampleDates {
@@ -193,27 +195,29 @@ class ExampleDatesWeekday {
 
 class ExampleTemplated {
   const ExampleTemplated({
-    required this.numbers,
-    required this.date,
     required String hello,
     required String contactMale,
     required String contactFemale,
-  })   : _hello = hello,
+    required this.numbers,
+    required this.date,
+  })  : _hello = hello,
         _contactMale = contactMale,
         _contactFemale = contactFemale;
 
-  final ExampleTemplatedNumbers numbers;
-  final ExampleTemplatedDate date;
   final String _hello;
   final String _contactMale;
   final String _contactFemale;
+  final ExampleTemplatedNumbers numbers;
+  final ExampleTemplatedDate date;
 
   String hello({
     required String firstName,
     String? locale,
   }) {
     return _hello.insertTemplateValues(
-      {'first_name': firstName},
+      {
+        'first_name': firstName,
+      },
       locale: locale,
     );
   }
@@ -225,13 +229,17 @@ class ExampleTemplated {
   }) {
     if (gender == Gender.male) {
       return _contactMale.insertTemplateValues(
-        {'last_name': lastName},
+        {
+          'last_name': lastName,
+        },
         locale: locale,
       );
     }
     if (gender == Gender.female) {
       return _contactFemale.insertTemplateValues(
-        {'last_name': lastName},
+        {
+          'last_name': lastName,
+        },
         locale: locale,
       );
     }
@@ -240,47 +248,47 @@ class ExampleTemplated {
 
   factory ExampleTemplated.fromJson(Map<String, Object?> map) =>
       ExampleTemplated(
+        hello: map['hello']! as String,
+        contactMale: map['contactMale']! as String,
+        contactFemale: map['contactFemale']! as String,
         numbers: ExampleTemplatedNumbers.fromJson(
             map['numbers']! as Map<String, Object?>),
         date:
             ExampleTemplatedDate.fromJson(map['date']! as Map<String, Object?>),
-        hello: map['hello']! as String,
-        contactMale: map['contactMale']! as String,
-        contactFemale: map['contactFemale']! as String,
       );
 
   ExampleTemplated copyWith({
-    ExampleTemplatedNumbers? numbers,
-    ExampleTemplatedDate? date,
     String? hello,
     String? contactMale,
     String? contactFemale,
+    ExampleTemplatedNumbers? numbers,
+    ExampleTemplatedDate? date,
   }) =>
       ExampleTemplated(
-        numbers: numbers ?? this.numbers,
-        date: date ?? this.date,
         hello: hello ?? _hello,
         contactMale: contactMale ?? _contactMale,
         contactFemale: contactFemale ?? _contactFemale,
+        numbers: numbers ?? this.numbers,
+        date: date ?? this.date,
       );
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is ExampleTemplated &&
-          numbers == other.numbers &&
-          date == other.date &&
           _hello == other._hello &&
           _contactMale == other._contactMale &&
-          _contactFemale == other._contactFemale);
+          _contactFemale == other._contactFemale &&
+          numbers == other.numbers &&
+          date == other.date);
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      numbers.hashCode ^
-      date.hashCode ^
       _hello.hashCode ^
       _contactMale.hashCode ^
-      _contactFemale.hashCode;
+      _contactFemale.hashCode ^
+      numbers.hashCode ^
+      date.hashCode;
 }
 
 class ExampleTemplatedNumbers {
@@ -288,7 +296,7 @@ class ExampleTemplatedNumbers {
     required String count,
     required String simple,
     required String formatted,
-  })   : _count = count,
+  })  : _count = count,
         _simple = simple,
         _formatted = formatted;
 
@@ -301,7 +309,9 @@ class ExampleTemplatedNumbers {
     String? locale,
   }) {
     return _count.insertTemplateValues(
-      {'count': count},
+      {
+        'count': count,
+      },
       locale: locale,
     );
   }
@@ -311,7 +321,9 @@ class ExampleTemplatedNumbers {
     String? locale,
   }) {
     return _simple.insertTemplateValues(
-      {'price': price},
+      {
+        'price': price,
+      },
       locale: locale,
     );
   }
@@ -321,7 +333,9 @@ class ExampleTemplatedNumbers {
     String? locale,
   }) {
     return _formatted.insertTemplateValues(
-      {'price': price},
+      {
+        'price': price,
+      },
       locale: locale,
     );
   }
@@ -363,7 +377,7 @@ class ExampleTemplatedDate {
   const ExampleTemplatedDate({
     required String simple,
     required String pattern,
-  })   : _simple = simple,
+  })  : _simple = simple,
         _pattern = pattern;
 
   final String _simple;
@@ -374,7 +388,9 @@ class ExampleTemplatedDate {
     String? locale,
   }) {
     return _simple.insertTemplateValues(
-      {'date': date},
+      {
+        'date': date,
+      },
       locale: locale,
     );
   }
@@ -384,7 +400,9 @@ class ExampleTemplatedDate {
     String? locale,
   }) {
     return _pattern.insertTemplateValues(
-      {'date': date},
+      {
+        'date': date,
+      },
       locale: locale,
     );
   }
@@ -420,7 +438,7 @@ class ExamplePlurals {
     required String manZero,
     required String manOne,
     required String manMultiple,
-  })   : _manZero = manZero,
+  })  : _manZero = manZero,
         _manOne = manOne,
         _manMultiple = manMultiple;
 

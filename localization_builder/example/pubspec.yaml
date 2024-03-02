@@ -14,7 +14,7 @@ dependencies:
   template_string:
     git:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: update-http-package
+      ref: update-intl-package
       path: template_string
   localization_builder: 
     path: ../
