@@ -18,13 +18,19 @@ dependencies:
   dart_style: any
   source_gen: ^4.1.2
   flutter_sheet_localization:
-    path: ../flutter_sheet_localization
+    git:
+      url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
+      ref: flutter-3.41.7-update
+      path: flutter_sheet_localization
   build: ^4.0.0
   analyzer: ^10.0.0
   collection: ^1.18.0
   intl: '>=0.18.1 <=0.20.2'
   localization_builder:
-    path: ../localization_builder
+    git:
+      url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
+      ref: flutter-3.41.7-update
+      path: localization_builder
 
 dev_dependencies:
   build_test: ^3.5.5
