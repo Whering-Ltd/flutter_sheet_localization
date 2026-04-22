@@ -14,14 +14,11 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: '>=3.9.0 <4.0.0'
 
 dependencies:
   flutter_sheet_localization:
-    git:
-      url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: flutter-3.32.7-update
-      path: flutter_sheet_localization
+    path: ../../flutter_sheet_localization
   flutter_localizations:
     sdk: flutter
   flutter:

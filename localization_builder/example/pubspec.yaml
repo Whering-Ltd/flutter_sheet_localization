@@ -2,19 +2,16 @@ name: example
 publish_to: none
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
-  flutter: ">=3.32.0"
+  sdk: '>=3.9.0 <4.0.0'
+  flutter: ">=3.35.1"
 
 dependencies:
   flutter:
-    sdk: flutter 
+    sdk: flutter
   logging: ^1.2.0
   http: ^1.2.0
   csv:
   template_string:
-    git:
-      url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: flutter-3.32.7-update
-      path: template_string
-  localization_builder: 
+    path: ../../template_string
+  localization_builder:
     path: ../

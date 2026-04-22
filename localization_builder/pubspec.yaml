@@ -4,22 +4,19 @@ homepage: https://github.com/aloisdeniel/flutter_sheet_localization
 version: 0.15.7
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
-  flutter: ">=3.32.0"
+  sdk: '>=3.9.0 <4.0.0'
+  flutter: ">=3.35.1"
 
 dependencies:
   flutter:
-    sdk: flutter 
+    sdk: flutter
   template_string:
-    git:
-      url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: flutter-3.32.7-update
-      path: template_string
+    path: ../template_string
   recase: ^4.1.0
   yaml: ^3.1.2
   equatable: ^2.0.7
   collection: ^1.18.0
-  dart_style: ^2.3.4
+  dart_style: any
   logging: ^1.2.0
 
 dev_dependencies:

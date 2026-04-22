@@ -23,12 +23,12 @@ class SheetLocalizationGenerator
           element: element);
     }
 
-    if (!element.name.endsWith('Delegate')) {
-      final name = element.name;
+    final elementName = element.name;
+    if (elementName == null || !elementName.endsWith('Delegate')) {
       throw InvalidGenerationSourceError(
-          'Generator for target `$name` should have a name that ends with `Delegate`.',
+          'Generator for target `$elementName` should have a name that ends with `Delegate`.',
           todo:
-              'Refactor the class name `$name` for a name ending with `Delegate` (example: `${name}Delegate`).',
+              'Refactor the class name `$elementName` for a name ending with `Delegate` (example: `${elementName}Delegate`).',
           element: element);
     }
 
@@ -43,7 +43,7 @@ class SheetLocalizationGenerator
         element: element,
       ),
     );*/
-    final name = '${element.name.replaceAll('Delegate', '')}Data';
+    final name = '${elementName.replaceAll('Delegate', '')}Data';
     final docId = annotation.objectValue.getField('docId')!.toStringValue();
     final sheetId = annotation.objectValue.getField('sheetId')!.toStringValue();
     var localizations = await _downloadGoogleSheet(
