@@ -17,14 +17,14 @@ class SheetLocalizationGenerator
   FutureOr<String> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) async {
     if (element is! ClassElement) {
-      final name = element.name;
+      final name = element.displayName;
       throw InvalidGenerationSourceError('Generator cannot target `$name`.',
           todo: 'Remove the SheetLocalization annotation from `$name`.',
           element: element);
     }
 
-    if (!element.name.endsWith('Delegate')) {
-      final name = element.name;
+    if (!element.displayName.endsWith('Delegate')) {
+      final name = element.displayName;
       throw InvalidGenerationSourceError(
           'Generator for target `$name` should have a name that ends with `Delegate`.',
           todo:
@@ -43,7 +43,7 @@ class SheetLocalizationGenerator
         element: element,
       ),
     );*/
-    final name = '${element.name.replaceAll('Delegate', '')}Data';
+    final name = '${element.displayName.replaceAll('Delegate', '')}Data';
     final docId = annotation.objectValue.getField('docId')!.toStringValue();
     final sheetId = annotation.objectValue.getField('sheetId')!.toStringValue();
     var localizations = await _downloadGoogleSheet(

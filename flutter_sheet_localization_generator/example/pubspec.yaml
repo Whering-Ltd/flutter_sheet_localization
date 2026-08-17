@@ -20,7 +20,7 @@ dependencies:
   flutter_sheet_localization:
     git:
       url: https://github.com/Whering-Ltd/flutter_sheet_localization.git
-      ref: flutter-3.32.7-update
+      ref: flutter-3.44.9-update
       path: flutter_sheet_localization
   flutter_localizations:
     sdk: flutter
